@@ -13,8 +13,9 @@ const renderer = new THREE.WebGLRenderer({ // Déclaration du rendu ThreeJS dans
 
 const geometry = new THREE.TorusGeometry(10, 3, 10, 100); // Définition de nos vecteurs => Définition de la forme géométrique que formera l'ensemble de nos vecteurs
 
-const material = new THREE.MeshStandardMaterial({ // Définition de nos matériaux => Ajout d'une matière à nos vecteurs pour qu'ils possèdent un style (et soit visible !)
-        color:0xFF6347
+const material =  new THREE.MeshBasicMaterial({ // Définition de nos matériaux => Ajout d'une matière à nos vecteurs pour qu'ils possèdent un style (et soit visible !)
+    color:0xFF6347,
+    wireframe:true
 });
 
 const torus = new THREE.Mesh(geometry, material); // Association de nos vecteurs avec nos matériaux 
