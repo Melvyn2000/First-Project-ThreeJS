@@ -54,4 +54,20 @@ function animate() { // Création d'une fonction animate() pour pouvoir donner u
 
 animate(); // Lancement de notre fonction animate()
 
+function addStar() { // Création d'une fonction addStar() pour pouvoir générer quelques "objets" dans notre scene
+    const geometry = new THREE.SphereGeometry(0.25); // Déclaration d'un nouveau vecteur qui est une sphere geometrique
+    const material = new THREE.MeshStandardMaterial({ // Déclaration de notre material
+        color: 0xffffff
+    });
+    const star = new THREE.Mesh(geometry, material); // Association de notre vecteur avec son material
+    const [x, y, z] = Array(3).fill().map(
+        () => THREE.MathUtils.randFloatSpread(100)
+    );
+
+    star.position.set(x, y, z); // Modification de la position de notre objet en fonction des axes x, y, et z
+    scene.add(star); // Ajout du nouvel objet a la scene
+}
+
+Array(250).fill().forEach(addStar); // Lancement de notre fonction addStar (x250 grâce à la bouche "forEach")
+
 createApp(App).mount('#app');
